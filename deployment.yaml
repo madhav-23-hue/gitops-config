@@ -1,12 +1,10 @@
 apiVersion: apps/v1
-
 kind: Deployment
 
 metadata:
   name: demo-app
 
 spec:
-
   replicas: 2
 
   selector:
@@ -14,19 +12,15 @@ spec:
       app: demo
 
   template:
-
     metadata:
       labels:
         app: demo
 
     spec:
-
       containers:
-
       - name: demo
-
-        image: yourdockerhub/demo:v1
+        image: demo-app:latest
+        imagePullPolicy: IfNotPresent
 
         ports:
-
         - containerPort: 5000
